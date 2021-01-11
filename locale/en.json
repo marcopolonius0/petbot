@@ -1,0 +1,50 @@
+{
+    "name":"en",
+    "version":1,
+    "messages":{
+        "test_message":"Generic test message.",
+        "unknown_error":"An unknown error occured.",
+        "undefined":"An undefined message was loaded! This is an error and should be reported to the bot developer: ",
+        "support":"Found an issue while using the bot?\nFound a translation error or a typo?\nNeed help using the bot in any way?\nPlease DM: Kaluub#1527.",
+        "no_admin":"This command requires admin permission from within the bot itself.",
+        "missing_permissions":"You are lacking the permission: ",
+        "new_language":"Your language was set to English.",
+        "syntax_error":"Syntax error. Please use syntax: ",
+        "syntax_options":"Command options: ",
+        "no_pets":"You don't have any pets! Try using `/claim` to get some.",
+        "no_pets_with_name":"There are no pets with that name!",
+        "no_owned_pets_with_name":"You don't own any pets with that name! Use `/pets` to see a list of your pets.",
+        "successful_new_active_pet":"You successfully changed your active pet to ",
+        "claim_cooldown":"You are on claim cooldown, please wait 6 hours between claims!",
+        "pet_no_value":"This pet is not able to be sold for tokens directly!",
+        "help_title":"Command Help Menu:",
+        "help_description":"This is a list of every command and what it will do, alongside it's syntax.\nTo learn more about a specific command, you should run `/help [command name]`",
+        "desc":"Description: ",
+        "syntax":"Syntax: ",
+        "no_command_with_name":"There is no command registered with the name "
+    },
+    "commands":{
+        "locale":"An admin tool for testing the locale features.",
+        "pets":"Displays all your current pets.",
+        "claim":"Claim a new pet. This can only be used every 6 hours.",
+        "petadmin":"An admin tool for managing pets.",
+        "petinfo":"Receive pet information for any pet.",
+        "help":"The help menu of the bot.",
+        "sellpet":"Used to sell pets for tokens.",
+        "setactive":"Sets a new active pet that gains EXP.",
+        "settings":"Customize some aspects of the bot to your liking."
+    },
+    "pets":{
+        "descriptions":{
+            "clash_eye":"The child of the eye, the true eyesore.",
+            "mr_smile":"Confused and tired.",
+            "lime":"A lime that somewhat looks familiar. Exclusive to Kaluub.",
+            "appreciation_star":"An exclusive pet given to people who've supported the development of this bot.",
+            "basic_egg":"This egg might contain a kitten... or even a puppy? Let it reach level 10 to find out!",
+            "basic_cat":"A generic cat. Hatched from the Basic Egg.",
+            "basic_dog":"A generic dog. Hatched from the Basic Egg.",
+            "drippy":"This water droplet is still questioning whether it's wet or not.",
+            "gushy":"This droplet moved on from things it considered dumb. Probably made out of ketchup?"
+        }
+    }
+}

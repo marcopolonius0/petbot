@@ -1,0 +1,87 @@
+{
+    "pets":{
+        "clash_eye":{
+            "id":"clash_eye",
+            "displayName":"Clashie",
+            "sprite":"clash_eye.png",
+            "obtainable":false,
+            "value":0,
+            "rarity":"Rare"
+        },
+        "mr_smile":{
+            "id":"mr_smile",
+            "displayName":"Mr. Smile",
+            "sprite":"mr_smile.png",
+            "obtainable":false,
+            "value":500,
+            "rarity":"Legendary"
+        },
+        "lime":{
+            "id":"lime",
+            "displayName":"Lime",
+            "sprite":"lime.png",
+            "obtainable":false,
+            "value":0,
+            "rarity":"Unobtainable"
+        },
+        "appreciation_star":{
+            "id":"appreciation_star",
+            "displayName":"Appreciative Star",
+            "sprite":"appreciation_star.png",
+            "obtainable":false,
+            "value":0,
+            "rarity":"Unobtainable"
+        },
+        "basic_egg":{
+            "id":"basic_egg",
+            "displayName":"Basic Egg",
+            "sprite":"basic_egg.gif",
+            "evolution":["basic_cat","basic_dog"],
+            "obtainable":false,
+            "value":0,
+            "rarity":"Baby"
+        },
+        "basic_cat":{
+            "id":"basic_cat",
+            "displayName":"Basic Cat",
+            "sprite":"basic_cat.png",
+            "obtainable":false,
+            "value":15,
+            "rarity":"Common"
+        },
+        "basic_dog":{
+            "id":"basic_dog",
+            "displayName":"Basic Dog",
+            "sprite":"basic_dog.png",
+            "obtainable":false,
+            "value":15,
+            "rarity":"Common"
+        },
+        "drippy":{
+            "id":"drippy",
+            "displayName":"Drippy",
+            "sprite":"drippy.png",
+            "evolution":["gushy"],
+            "obtainable":true,
+            "value":30,
+            "rarity":"Rare"
+        },
+        "gushy":{
+            "id":"gushy",
+            "displayName":"Gushy",
+            "sprite":"gushy.png",
+            "obtainable":true,
+            "value":80,
+            "rarity":"Mythic"
+        }
+    },
+    "req":{
+        "base":[10,30,70,130,250,550,800,1200,1700,2500,0],
+        "Unobtainable":0.1,
+        "Baby":0.2,
+        "Common":1,
+        "Rare":1.5,
+        "Mythic":2,
+        "Legendary":3
+    }
+}

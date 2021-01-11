@@ -1,0 +1,50 @@
+{
+    "name":"fr",
+    "version":1,
+    "messages":{
+        "test_message":"Message d'exemple.",
+        "unknown_error":"Un erreur inconsive avait arriver.",
+        "undefined":"Un message incomplet avait eu passer. Rapporter ceci au developeur: ",
+        "support":"Vous avez trouver un erreur dans le robot?\nVous avez trouvez un erreur lingustique?\nVouz avez besoin d'aide avec utilisage du robot?\nSVP envoyer un message au: Kaluub#1527.",
+        "no_admin":"Cette commande a besoin du permission administritive dans le robot pour l'utilisé.",
+        "missing_permissions":"Vous manque le permission: ",
+        "new_language":"Votre langue est maintenant Francais.",
+        "syntax_error":"Erreur de syntax. Utilise le syntax: ",
+        "syntax_options":"Options de commande: ",
+        "no_pets":"Vous n'avez pas des chouchous! Utilise `/claim` pour obtenir un.",
+        "no_pets_with_name":"Il n'y a pas un chouchou avec cette nom!",
+        "no_owned_pets_with_name":"Vous n'avez pas un chouchou avec cette nom! Utilise `/pets` pour un liste de tes chouchous.",
+        "successful_new_active_pet":"Votre chouchou active est maintenant ",
+        "claim_cooldown":"Vous devrait attendre 6 heures avant utiliser cette commande encore!",
+        "pet_no_value":"Cette chouchou ne peut pas etre vendu pour l'argent directement.",
+        "help_title":"L'aide des Commandes:",
+        "help_description":"Ceci est un liste de tous les commandes, leure fonction et leure syntaxe.\nPour apprendre plus sur un commande specifique, tu pourrait utiliser: `/help [nom du commande]`",
+        "desc":"Description: ",
+        "syntax":"Syntaxe: ",
+        "no_command_with_name":"Il y a pas un commande avec le nom "
+    },
+    "commands":{
+        "locale":"Un utile administrative pour aider avec le developement de localisation.",
+        "pets":"Liste de toutes vos chouchous.",
+        "claim":"Utiliser pour chercher votre propre chouchou!",
+        "petadmin":"Un utile administrative pour manager les chouchous.",
+        "petinfo":"Recoit l'information d'un chouchou specifier.",
+        "help":"Le menu d'aide du robot.",
+        "sellpet":"C'est utile pour vendre les chouchous.",
+        "setactive":"Utilise un chouchou different qui recoit l'experience.",
+        "settings":"Change des differents options dans le robot pour t'aider dans l'utilisage."
+    },
+    "pets":{
+        "descriptions":{
+            "clash_eye":"L'enfant de l'oeil, l'horreur le plus puissant.",
+            "mr_smile":"Confus et fatigué.",
+            "lime":"C'est un citron vert qui regarde familier. Seulement obtenu par Kaluub.",
+            "appreciation_star":"Un chouchou exclusif au les individuelles qui avez aider dans le production du bot.",
+            "basic_egg":"Cette oeuf peuvent contien un petit chaton... ou meme un chiot? Let it reach level 10 to find out!",
+            "basic_cat":"Un chat normale. C'est trouver par le Basic Egg.",
+            "basic_dog":"Un chien normale. C'est trouver par le Basic Egg.",
+            "drippy":"Cette goublette d'eau a beaucoup des questions, comme s'il est sec ou non.",
+            "gushy":"Cette goublette n'aime pas les debates stupides. Fait probablement du ketchup?"
+        }
+    }
+}
