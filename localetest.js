@@ -1,4 +1,8 @@
 // This is a script used for testing the locale system. Useful for finding locale errors, learning the locale system or otherwise messing around.
+// The locale system also handles:
+// Command messages
+// Command descriptions (used in /help)
+// Pet descriptions (used in /petinfo)
 
 // Requires fs. To use the locale, also requires text.js in './locale/text.js'.
 const fs = require('fs');
