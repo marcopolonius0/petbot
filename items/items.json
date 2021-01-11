@@ -1,0 +1,10 @@
+{
+    "items":{
+        "item":{
+            "id":"item",
+            "displayName":"Item",
+            "price":0,
+            "obtainable":false
+        }
+    }
+}
