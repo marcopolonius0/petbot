@@ -4,7 +4,49 @@
             "id":"item",
             "displayName":"Item",
             "price":0,
-            "obtainable":false
+            "obtainable":false,
+            "tradeable":false,
+            "useable":false
+        },
+        "pet_token":{
+            "id":"pet_token",
+            "displayName":"Pet Voucher",
+            "price":0,
+            "obtainable":false,
+            "tradeable":true,
+            "useable":true
+        },
+        "exp_boost_small":{
+            "id":"exp_boost_small",
+            "displayName":"Small EXP Boost",
+            "price":150,
+            "obtainable":true,
+            "tradeable":true,
+            "useable":true
+        },
+        "exp_boost_medium":{
+            "id":"exp_boost_medium",
+            "displayName":"Medium EXP Boost",
+            "price":300,
+            "obtainable":true,
+            "tradeable":true,
+            "useable":true
+        },
+        "exp_boost_large":{
+            "id":"exp_boost_large",
+            "displayName":"Large EXP Boost",
+            "price":600,
+            "obtainable":true,
+            "tradeable":true,
+            "useable":true
+        },
+        "exp_boost_huge":{
+            "id":"exp_boost_huge",
+            "displayName":"Huge EXP Boost",
+            "price":1500,
+            "obtainable":true,
+            "tradeable":true,
+            "useable":true
         }
     }
 }

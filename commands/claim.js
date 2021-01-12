@@ -22,9 +22,9 @@ module.exports = {
         let petstats = petinfo.pets[newPet.id];
         if(newPet.id in userpets.pets){
             const value = petstats.value * userpets.tokens.multiplier;
-            userpets.tokens.count += value;
             if(!userpets.stats.petsDuplicates) userpets.stats.petDuplicates = 0;
             userpets.stats.petDuplicates += 1;
+            userpets.tokens.count += value;
             await db.petsdb.set(message.author.id,userpets);
             let msg = new Discord.MessageEmbed()
                 .setTitle(`Pet claim: ${petstats.displayName}`)

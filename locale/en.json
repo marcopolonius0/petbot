@@ -21,7 +21,17 @@
         "help_description":"This is a list of every command and what it will do, alongside it's syntax.\nTo learn more about a specific command, you should run `/help [command name]`",
         "desc":"Description: ",
         "syntax":"Syntax: ",
-        "no_command_with_name":"There is no command registered with the name "
+        "no_command_with_name":"There is no command registered with the name ",
+        "shop_title":"Shop Menu",
+        "shop_description":"A list of every item you can buy and sell!\nTo buy an item, use `/shop buy [item name]`.\nTo sell an item, use `/shop sell [item name]`.",
+        "source_title":"Bot source code:",
+        "source_description":"If you want to see the source code of this bot, you can see (most) of it over at [GitHub](https://github.com/Kaluub/petbot).",
+        "bought_item":"You successfully bought a ",
+        "sold_item":"You successfully sold a ",
+        "item_unobtainable":"This item cannot be purchased from the shop.",
+        "item_not_found":"This item couldn't be found. A list of item names is available using `/shop`.",
+        "item_not_owned":"You don't own this item and therefore cannot sell it.",
+        "no_tokens":"You don't have enough tokens to afford this item!"
     },
     "commands":{
         "locale":"An admin tool for testing the locale features.",
@@ -32,7 +42,9 @@
         "help":"The help menu of the bot.",
         "sellpet":"Used to sell pets for tokens.",
         "setactive":"Sets a new active pet that gains EXP.",
-        "settings":"Customize some aspects of the bot to your liking."
+        "settings":"Customize some aspects of the bot to your liking.",
+        "shop":"Purchasing new items as well as selling old items is done through this command.",
+        "source":"View the source code of the bot on GitHub."
     },
     "pets":{
         "descriptions":{

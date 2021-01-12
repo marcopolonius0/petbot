@@ -37,7 +37,7 @@
             "displayName":"Basic Egg",
             "sprite":"basic_egg.gif",
             "evolution":["basic_cat","basic_dog"],
-            "obtainable":false,
+            "obtainable":true,
             "value":0,
             "rarity":"Baby"
         },

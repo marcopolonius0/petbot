@@ -30,7 +30,7 @@ module.exports = {
                 .addField(`${locale.text({lang:db.lang,msg:"desc"})} `,`${locale.cmdDescription({lang:db.lang,cmd:cmd.name})} `)
                 .addField(`${locale.text({lang:db.lang,msg:"syntax"})} `,`\`${cmd.syntax}\` `)
                 .setTimestamp();
-            return message.channel.send(msg);
+            return message.channel.send({embed:msg,split:true});
         };
         return message.channel.send(`${locale.text({lang:db.lang,msg:"no_command_with_name"})}${args[0]} `);
     }

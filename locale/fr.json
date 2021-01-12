@@ -21,7 +21,17 @@
         "help_description":"Ceci est un liste de tous les commandes, leure fonction et leure syntaxe.\nPour apprendre plus sur un commande specifique, tu pourrait utiliser: `/help [nom du commande]`",
         "desc":"Description: ",
         "syntax":"Syntaxe: ",
-        "no_command_with_name":"Il y a pas un commande avec le nom "
+        "no_command_with_name":"Il y a pas un commande avec le nom ",
+        "shop_title":"Menu D'achat",
+        "shop_description":"Un liste de toute les objets dans le marcher.\nPour acheter un objet, utilise `/shop buy [nom d'objet]`.\nPour vendre un objet, utilise `/shop sell [nom d'objet]`.",
+        "source_title":"Code du robot:",
+        "source_description":"Si tu veut savoir comment le robot fonction, tu peut voire le source au [GitHub](https://github.com/Kaluub/petbot).",
+        "bought_item":"Vous avez acheter un ",
+        "sold_item":"Vouz avez vendu un ",
+        "item_unobtainable":"Cette objet n'est pas vendu par le marche.",
+        "item_not_found":"Cette objet ne peut pas etre trouver. Utilise `/shop` pour un liste utilisable.",
+        "item_not_owned":"Tu n'as pas cette objet donc tu ne peut pas le vendre.",
+        "no_tokens":"Vous n'avez pas les fonds neccessaire pour l'acheter cette objet!"
     },
     "commands":{
         "locale":"Un utile administrative pour aider avec le developement de localisation.",
@@ -32,7 +42,9 @@
         "help":"Le menu d'aide du robot.",
         "sellpet":"C'est utile pour vendre les chouchous.",
         "setactive":"Utilise un chouchou different qui recoit l'experience.",
-        "settings":"Change des differents options dans le robot pour t'aider dans l'utilisage."
+        "settings":"Change des differents options dans le robot pour t'aider dans l'utilisage.",
+        "shop":"Achet ou vendre les objets dans cette commande.",
+        "source":"Voire le source du robot au GitHub."
     },
     "pets":{
         "descriptions":{

@@ -36,12 +36,30 @@ client.on('message', async (message) => {
     // Load data for user, if inexistent set to defaults:
     let userpets = await petsdb.get(message.author.id);
     if(!userpets){
-        await petsdb.set(message.author.id,{pets:{},activePet:null,petMessageCooldown:0,items:{},tokens:{count:0,multiplier:1},stats:{},claimCooldown:0});
+        // Default database structure
+        await petsdb.set(message.author.id,{
+            pets:{},
+            activePet:null,
+            petMessageCooldown:0,
+            items:[],
+            tokens:{
+                count:0,
+                multiplier:1
+            },
+            stats:{},
+            claimCooldown:0
+        });
+        // Update variable with new data
         userpets = await petsdb.get(message.author.id);
     };
+    // Main settings for the user
     let usersettings = await maindb.get(message.author.id);
     if(!usersettings){
-        await maindb.set(message.author.id,{lang:'en'});
+        // Currently, only main setting is their language.
+        await maindb.set(message.author.id,{
+            lang:'en'
+        });
+        // Update variable with new data
         usersettings = await maindb.get(message.author.id);
     };
     // Active pet training:
