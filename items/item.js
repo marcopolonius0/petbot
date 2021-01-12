@@ -34,21 +34,21 @@ class Item {
             for(const i in options.userpets.items){
                 let item = options.userpets.items[i];
                 if(item.id == options.id && item.data == options.data){
-                    options.userpets.slice(i,1);
+                    options.userpets.items.slice(i,1);
                     break;
                 };
             };
             return options.userpets;
-        }
+        };
         for(const i in options.userpets.items){
             let item = options.userpets.items[i];
             if(item.id == options.id){
-                options.userpets.slice(i,1);
+                options.userpets.items.splice(i,1);
                 break;
             };
         };
         return options.userpets;
-    }
+    };
 
     static getItem(item){
         if(!item) return null;

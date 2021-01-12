@@ -12,7 +12,7 @@ module.exports = {
         const pet = await Pet.searchByName({args:args,userdata:userpets});
         if(pet == null) return message.channel.send(locale.text({lang:db.lang,msg:"no_owned_pets_with_name"}));
         if(pet.value == 0) return message.channel.send(locale.text({lang:db.lang,msg:"pet_no_value"}));
-        const value = pet.value*userpets.tokens.multiplier
+        const value = new Number(pet.value)*userpets.tokens.multiplier
         userpets.tokens.count += value;
         delete userpets.pets[pet.id];
         if(!userpets.stats.petsSold) userpets.stats.petsSold = 0;

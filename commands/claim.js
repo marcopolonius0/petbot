@@ -14,15 +14,15 @@ module.exports = {
             await db.petsdb.set(message.author.id,userpets);
             userpets = await db.petsdb.get(message.author.id);
         };
-        if(Date.now() < userpets.claimCooldown) return message.channel.send(locale.text({lang:db.lang,msg:"claim_cooldown"}));
+        //if(Date.now() < userpets.claimCooldown) return message.channel.send(locale.text({lang:db.lang,msg:"claim_cooldown"}));
         userpets.claimCooldown = Date.now() + 21600000;
-        if(!userpets.stats.totalClaimed) userpets.stats.totalClaimed = 0;
+        if(userpets.stats.totalClaimed == undefined) userpets.stats.totalClaimed = 0;
         userpets.stats.totalClaimed += 1;
         let newPet = new Pet({});
         let petstats = petinfo.pets[newPet.id];
         if(newPet.id in userpets.pets){
-            const value = petstats.value * userpets.tokens.multiplier;
-            if(!userpets.stats.petsDuplicates) userpets.stats.petDuplicates = 0;
+            const value = new Number(petstats.value) * userpets.tokens.multiplier;
+            if(userpets.stats.petDuplicates == undefined) userpets.stats.petDuplicates = 0;
             userpets.stats.petDuplicates += 1;
             userpets.tokens.count += value;
             await db.petsdb.set(message.author.id,userpets);
@@ -36,7 +36,7 @@ module.exports = {
             return message.channel.send(msg);
         };
         userpets.pets[newPet.id] = newPet;
-        if(!userpets.stats.petsClaimed) userpets.stats.petsClaimed = 0;
+        if(userpets.stats.petsClaimed == undefined) userpets.stats.petsClaimed = 0;
         userpets.stats.petsClaimed += 1;
         await db.petsdb.set(message.author.id,userpets);
         let msg = new Discord.MessageEmbed()
