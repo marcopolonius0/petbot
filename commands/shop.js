@@ -24,11 +24,12 @@ module.exports = {
         if(args[0] == 'buy' && args[1]){
             let query = args; query.shift();
             let item = Item.searchItemByName({args:query});
+            console.log(item);
             if(!item) return message.channel.send(locale.text({lang:db.lang,msg:"item_not_found"}));
             if(!item.obtainable) return message.channel.send(locale.text({lang:db.lang,msg:"item_unobtainable"}));
             let userpets = await db.petsdb.get(message.author.id);
-            if(userpets.tokens.count < Math.floor(new Number(item.value))) return message.channel.send(locale.text({lang:db.lang,msg:"no_funds"}));
-            userpets.tokens.count -= Math.floor(item.value);
+            if(userpets.tokens.count < Math.floor(item.price)) return message.channel.send(locale.text({lang:db.lang,msg:"no_tokens"}));
+            userpets.tokens.count -= Math.floor(item.price);
             userpets = await Item.giveItem({id:item.id,userpets:userpets});
             await db.petsdb.set(message.author.id,userpets);
             return message.channel.send(locale.text({lang:db.lang,msg:"bought_item"})+`${item.displayName}.`);
@@ -40,7 +41,7 @@ module.exports = {
             if(!item.obtainable) return message.channel.send(locale.text({lang:db.lang,msg:"item_unobtainable"}));
             let userpets = await db.petsdb.get(message.author.id);
             if(!Item.hasItem({id:item.id,userpets:userpets})) return message.channel.send(locale.text({lang:db.lang,msg:"item_not_owned"}))
-            userpets.tokens.count += Math.floor(new Number(item.value)*0.5);
+            userpets.tokens.count += Math.floor(item.price*0.5);
             userpets = await Item.removeItem({id:item.id,userpets:userpets});
             await db.petsdb.set(message.author.id,userpets);
             return message.channel.send(locale.text({lang:db.lang,msg:"sold_item"})+`${item.displayName}.`);

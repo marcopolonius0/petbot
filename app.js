@@ -4,6 +4,8 @@ const fs = require('fs');
 const client = new Discord.Client();
 const config = require('./private/config.json');
 const text = require('./locale/text.js');
+const Pet = require('./pets/pet');
+const Data = require('./data.js');
 const petinfo = require('./pets/pets.json');
 const commands = require('./commands.js');
 const prefix = `/`;
@@ -20,7 +22,6 @@ text.update(locale);
 
 // Start database:
 const Keyv = require('keyv');
-const Pet = require('./pets/pet');
 const maindb = new Keyv('sqlite://private/data/main.sqlite');
 const petsdb = new Keyv('sqlite://private/data/pets.sqlite');
 
@@ -33,35 +34,22 @@ client.on('ready', () => {
 client.on('message', async (message) => {
     // Ignore other bots:
     if(message.author.bot) return;
-    // Load data for user, if inexistent set to defaults:
+    // Load pet data for user, if inexistent set to defaults, if outdated fix it:
     let userpets = await petsdb.get(message.author.id);
-    if(!userpets){
-        // Default database structure
-        await petsdb.set(message.author.id,{
-            pets:{},
-            activePet:null,
-            petMessageCooldown:0,
-            items:[],
-            tokens:{
-                count:0,
-                multiplier:1
-            },
-            stats:{},
-            claimCooldown:0
-        });
-        // Update variable with new data
+    if(!userpets)
+        await petsdb.set(message.author.id, new Data('pets',{}));
         userpets = await petsdb.get(message.author.id);
-    };
+    if(!userpets.version || userpets.version < 1)
+        await petsdb.set(message.author.id, Data.updateData('pets',userpets));
+        userpets = await petsdb.get(message.author.id);
     // Main settings for the user
     let usersettings = await maindb.get(message.author.id);
-    if(!usersettings){
-        // Currently, only main setting is their language.
-        await maindb.set(message.author.id,{
-            lang:'en'
-        });
-        // Update variable with new data
+    if(!usersettings)
+        await maindb.set(message.author.id,new Data('main',{}));
         usersettings = await maindb.get(message.author.id);
-    };
+    if(!usersettings.version || usersettings.version < 1)
+        await maindb.set(message.author.id, Data.updateData('main',usersettings));
+        usersettings = await maindb.get(message.author.id);
     // Active pet training:
     if(userpets.activePet && !message.content.startsWith(prefix)){
         let pet = userpets.pets[userpets.activePet];
