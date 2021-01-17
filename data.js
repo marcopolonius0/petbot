@@ -26,6 +26,9 @@ class Data {
                 if(data.items)
                     delete data.items;
                     data.items = [];
+                if(data.stats.petDuplicates)
+                    data.stats.petDuplicates = data.stats.totalClaimed - data.stats.petsClaimed;
+                    if(!data.stats.petDuplicates) data.stats.petDuplicates = 0;
                 if(data.tokens.count == null) data.tokens.count = 0;
             };
             data.version = 1;

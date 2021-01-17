@@ -1,3 +1,5 @@
+// Setting up the bot for the first time: Please read the README.md file included in this directory.
+
 // Define variables:
 const Discord = require('discord.js');
 const fs = require('fs');
@@ -102,11 +104,6 @@ client.on('message', async (message) => {
             console.log(error);
         };
     };
-});
-
-// Knowledge of when somebody adds the bot to a guild:
-client.on('guildCreate', guild => {
-    console.log(`New guild: ${guild.name} (ID: ${guild.id}).`);
 });
 
 // Logging in. Make sure to set up './private/config.json' to be able to use a token.

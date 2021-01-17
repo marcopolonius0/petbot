@@ -1,17 +1,21 @@
-# Items
+# Items:
 ## Adding new items:
-Have "items.json" open, found in this directory.
+Have `items.json` open, found in this directory.
 When adding a new item, please make sure to add an object in the "items" object.
 
 Here's an example of a new item:
 ```json
-"food":{
-    "id":"food",
-    "displayName":"Food",
-    "price":6,
-    "obtainable":true,
-    "tradeable":true,
-    "useable":true
+{
+    "items":{
+        "food":{
+            "id":"food",
+            "displayName":"Food",
+            "price":6,
+            "obtainable":true,
+            "tradeable":true,
+            "useable":true
+        }
+    }
 }
 ```
 

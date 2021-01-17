@@ -11,7 +11,7 @@ class Item {
     
     static hasItem(options){
         if(!options.id || !options.userpets) return null;
-        let res = false;
+        let res = null;
         for(const i in options.userpets.items){
             let item = options.userpets.items[i];
             if(item.id == options.id){
@@ -83,9 +83,10 @@ class Item {
             if(item.id == 'exp_boost_medium') boost = 100;
             if(item.id == 'exp_boost_large') boost = 200;
             if(item.id == 'exp_boost_huge') boost = 500;
-            let pet = options.userpets.pets[userpets.activePet];
+            let pet = options.userpets.pets[options.userpets.activePet];
             if(!pet) return null;
             pet.exp += boost;
+            options.userpets.pets[pet.id] = pet;
             options.userpets = await Item.removeItem({id:item.id,userpets:options.userpets});
             return options.userpets;
         };
@@ -98,6 +99,7 @@ class Item {
             options.userpets = await Item.removeItem({id:item.id,userpets:options.userpets,data:itemdata.data});
             return options.userpets;
         };
+        return null;
     };
 };
 

@@ -1,4 +1,5 @@
 // This is a script used for testing the locale system. Useful for finding locale errors, learning the locale system or otherwise messing around.
+// To run the locale test file, use "node localetest.js"
 // The locale system also handles:
 // Command messages
 // Command descriptions (used in /help)

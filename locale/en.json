@@ -30,7 +30,9 @@
         "sold_item":"You successfully sold a ",
         "item_unobtainable":"This item cannot be purchased from the shop.",
         "item_not_found":"This item couldn't be found. A list of item names is available using `/shop`.",
-        "item_not_owned":"You don't own this item and therefore cannot sell it.",
+        "item_not_owned":"You don't own this item!",
+        "item_not_useable":"This item cannot be used!",
+        "item_used":"You successfully used your: ",
         "no_tokens":"You don't have enough tokens to afford this item!"
     },
     "commands":{

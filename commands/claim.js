@@ -14,7 +14,7 @@ module.exports = {
             await db.petsdb.set(message.author.id,userpets);
             userpets = await db.petsdb.get(message.author.id);
         };
-        //if(Date.now() < userpets.claimCooldown) return message.channel.send(locale.text({lang:db.lang,msg:"claim_cooldown"}));
+        if(Date.now() < userpets.claimCooldown) return message.channel.send(locale.text({lang:db.lang,msg:"claim_cooldown"}));
         userpets.claimCooldown = Date.now() + 21600000;
         if(userpets.stats.totalClaimed == undefined) userpets.stats.totalClaimed = 0;
         userpets.stats.totalClaimed += 1;

@@ -10,7 +10,7 @@ module.exports = {
     // Params:
     // data.lang: any supported language name defined in the .json locale files;
     // data.msg: any message within the "messages" defined in the .json locale files;
-    // Example usage can be found in './localetest.js'.
+    // Example usage can be found in '../localetest.js'.
     text(data){
         if(!data.lang || !locale[data.lang]) data.lang = 'en';
         let msg = locale[data.lang].messages[data.msg];

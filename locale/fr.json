@@ -30,7 +30,9 @@
         "sold_item":"Vouz avez vendu un ",
         "item_unobtainable":"Cette objet n'est pas vendu par le marche.",
         "item_not_found":"Cette objet ne peut pas etre trouver. Utilise `/shop` pour un liste utilisable.",
-        "item_not_owned":"Tu n'as pas cette objet donc tu ne peut pas le vendre.",
+        "item_not_owned":"Tu n'as pas cette objet!",
+        "item_not_useable":"Cette objet ne peut pas etre utiliser.",
+        "item_used":"Vous avez utiliser votre: ",
         "no_tokens":"Vous n'avez pas les fonds neccessaire pour l'acheter cette objet!"
     },
     "commands":{
