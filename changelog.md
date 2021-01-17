@@ -5,7 +5,7 @@ These are all the changelogs for various versions.
 The bot is still in beta since not every feature intended for release is provided. Here is a list of new features included in this release:
 ## Additions:
 * Items have been added properly, as an array of objects in the database.
-* Items can be sold, purchased, and used as of now. Respecitive commands: `/shop`; `/use`. Trading may come later.
+* Items can be sold, purchased, and used as of now. Respective commands: `/shop`; `/use`. Trading may come later.
 * Owned items can be seen using `/inventory`.
 * Commands are now listed in their own module, allowing for reading commands from other commands being possible.
 * A help interface has been added which lists every command and their description.
@@ -14,4 +14,4 @@ The bot is still in beta since not every feature intended for release is provide
 * Added information files for adding new locales, new items and new pets.
 * `/source` was added to make finding the bots source code simpler.
 ## Fixes:
-* Unused statistics for pet duplicates is now fixed, previously it would always become 1. While there may be some inacuracy, the statistic will be added to a user properly if they migrate their data based on the other claiming related statistics.
+* Unused statistics for pet duplicates is now fixed, previously it would always become 1. While there may be some inaccuracy, the statistic will be added to a user properly if they migrate their data based on the other claiming related statistics.
