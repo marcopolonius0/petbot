@@ -46,7 +46,10 @@
         "setactive":"Utilise un chouchou different qui recoit l'experience.",
         "settings":"Change des differents options dans le robot pour t'aider dans l'utilisage.",
         "shop":"Achet ou vendre les objets dans cette commande.",
-        "source":"Voire le source du robot au GitHub."
+        "source":"Voire le source du robot au GitHub.",
+        "use":"Cette commande est pour utiliser vos objets.",
+        "stats":"Voire tes statisiques personnels ici.",
+        "inventory":"Voire l'inventoire de toi-meme ou un autre personne."
     },
     "pets":{
         "descriptions":{
@@ -60,5 +63,15 @@
             "drippy":"Cette goublette d'eau a beaucoup des questions, comme s'il est sec ou non.",
             "gushy":"Cette goublette n'aime pas les debates stupides. Fait probablement du ketchup?"
         }
+    },
+    "stats":{
+        "totalClaimed":"Chouchous obtenu: ",
+        "petDuplicates":"Multiple chouchous: ",
+        "petsClaimed":"Chouchous unique: ",
+        "petsSold":"Chouchous vendu: ",
+        "itemsBought":"Objets achete: ",
+        "itemsSold":"Objets vendu: ",
+        "itemsUsed":"Objets utilise: ",
+        "commandsUsed":"Nombre de commandes utilises: "
     }
 }

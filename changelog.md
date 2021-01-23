@@ -1,5 +1,15 @@
 # Changelogs:
-These are all the changelogs for various versions.
+These are all the changelogs for every version to date.
+
+# b2.1
+## Changes:
+* Statistics are now viewable from the `/stats` command.
+* Added a new `commandsUsed` statistic.
+* Locale is now managed fully by `text.js`, previously the locale was first loaded in `app.js` and then sent to `text.js`.
+* Some important files are now commented.
+* The `/petadmin` command was revamped to be more user-friendly and more effective.
+* When provided with wrong data, the `item.js` class will no longer return 'null' and instead just return the database structure with no changes to avoid setting a users data to 'null'. This eliminates any risk when adding new commands that interact with this class.
+* Fixed some command descriptions that were forgotten.
 
 # b2.0
 The bot is still in beta since not every feature intended for release is provided. Here is a list of new features included in this release:

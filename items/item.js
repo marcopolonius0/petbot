@@ -3,12 +3,14 @@ const Pet = require('../pets/pet.js');
 const petinfo = require('../pets/pets.json');
 
 class Item {
+    // New item generation:
     constructor(options){
         this.id = options.id || 'item';
         this.data = options.data || undefined;
         return this;
     };
     
+    // Check if a users data has a specific item ID:
     static hasItem(options){
         if(!options.id || !options.userpets) return null;
         let res = null;
@@ -22,14 +24,16 @@ class Item {
         return res;
     };
 
+    // Give a new item to a users data, return with new data:
     static giveItem(options){
         if(!options.id || !options.userpets) return null;
         options.userpets.items.push(new Item(options));
         return options.userpets;
     };
 
+    // Remove an item from a users data, return with new data:
     static removeItem(options){
-        if(!options.id || !options.userpets) return null;
+        if(!options.id || !options.userpets) return options.userpets;
         if(options.data){
             for(const i in options.userpets.items){
                 let item = options.userpets.items[i];
@@ -50,6 +54,7 @@ class Item {
         return options.userpets;
     };
 
+    // Get information for an item:
     static getItem(item){
         if(!item) return null;
         let res = items.items[item];
@@ -57,6 +62,7 @@ class Item {
         return res;
     };
 
+    // Search for an items complete data by searching it using it's display name:
     static searchItemByName(options){
         if(!options.args) return null;
         let res = null;
@@ -71,12 +77,13 @@ class Item {
         return res;
     };
 
+    // Use an item if it's useable, returns with data if successful or null if not:
     static async useItem(options){
-        if(!options.userpets || !options.itemIndex) return null;
+        if(!options.userpets || !options.itemIndex) return options.userpets;
         let itemdata = options.userpets.items[options.itemIndex];
-        if(!itemdata) return null;
+        if(!itemdata) return options.userpets;
         let item = items.items[itemdata.id];
-        if(!item) return null;
+        if(!item) return options.userpets;
         if(item.id.startsWith('exp_boost')){
             let boost = 0;
             if(item.id == 'exp_boost_small') boost = 50;
@@ -84,7 +91,7 @@ class Item {
             if(item.id == 'exp_boost_large') boost = 200;
             if(item.id == 'exp_boost_huge') boost = 500;
             let pet = options.userpets.pets[options.userpets.activePet];
-            if(!pet) return null;
+            if(!pet) return options.userpets;
             pet.exp += boost;
             options.userpets.pets[pet.id] = pet;
             options.userpets = await Item.removeItem({id:item.id,userpets:options.userpets});
@@ -99,7 +106,7 @@ class Item {
             options.userpets = await Item.removeItem({id:item.id,userpets:options.userpets,data:itemdata.data});
             return options.userpets;
         };
-        return null;
+        return options.userpets;
     };
 };
 

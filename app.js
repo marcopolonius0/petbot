@@ -2,7 +2,6 @@
 
 // Define variables:
 const Discord = require('discord.js');
-const fs = require('fs');
 const client = new Discord.Client();
 const config = require('./private/config.json');
 const text = require('./locale/text.js');
@@ -11,16 +10,6 @@ const Data = require('./data.js');
 const petinfo = require('./pets/pets.json');
 const commands = require('./commands.js');
 const prefix = `/`;
-
-// Fetch and update locale data:
-let locale = {};
-const localeFiles = fs.readdirSync('./locale').filter(file => file.endsWith('.json'));
-for(const file of localeFiles){
-    const lang = require(`./locale/${file}`);
-    if(!lang.version || lang.version != 1) continue;
-    locale[lang.name] = lang;
-};
-text.update(locale);
 
 // Start database:
 const Keyv = require('keyv');
@@ -34,7 +23,7 @@ client.on('ready', () => {
 
 // Handle messages:
 client.on('message', async (message) => {
-    // Ignore other bots:
+    // Ignore other bots and self:
     if(message.author.bot) return;
     // Load pet data for user, if inexistent set to defaults, if outdated fix it:
     let userpets = await petsdb.get(message.author.id);
@@ -103,6 +92,9 @@ client.on('message', async (message) => {
         } catch(error){
             console.log(error);
         };
+        if(!userpets.stats.commandsUsed) userpets.stats.commandsUsed = 0;
+        userpets.stats.commandsUsed += 1;
+        await petsdb.set(message.author.id,userpets);
     };
 });
 

@@ -1,35 +1,66 @@
+const locale = require('../locale/text.js');
+const Pet = require('../pets/pet.js');
+const Item = require('../items/item.js');
+
 module.exports = {
     name:'petadmin',
-    syntax:'/petadmin [options]',
+    syntax:'/petadmin [user ID/mention] [function]',
     admin:true,
     async execute(message,args,db){
-        if(!args[0] || !args[1]) return message.channel.send('Syntax: `/petadmin [user ID/mention] [r/m]`');
+        // Validation checks...
+        if(!args[0] || !args[1]) return message.channel.send(locale.text({lang:db.lang,msg:"syntax_error"})+this.syntax);
         let user = message.mentions.users.first();
         if(!user) user = await message.client.users.fetch(args[0],true);
-        if(!user) return message.channel.send('Invalid arguments passed. Syntax: `/petadmin [user ID/mention] [r/m]`');
+        if(!user) return message.channel.send(locale.text({lang:db.lang,msg:"syntax_error"})+this.syntax);
         let userpets = await db.petsdb.get(user.id);
-        if(args[1] == 'm'){
-            if(!args[2]) return message.channel.send('Use syntax: `/petadmin [user ID/mention] m [l/e] [pet ID] [value]`');
-            if(args[2] =='l'){
-                if(!args[3] || !args[4]) return message.channel.send('Use syntax: `/petadmin [user ID/mention] m l [pet ID] [value]`');
-                if(!userpets.pets[args[3]]) return message.channel.send(`User ${user.username} does not have this pet.`);
-                userpets.pets[args[3]].level = Number(args[4]);
-                await db.petsdb.set(message.author.id,userpets);
-                return message.channel.send(`Successfully set pet level for user ${user.username} on pet ${userpets.pets[args[3]].id} to ${args[4]}.`);
-            };
-            if(args[2] =='e'){
-                if(!args[3] || !args[4]) return message.channel.send('Use syntax: `/petadmin [user ID/mention] m e [pet ID] [value]`');
-                if(!userpets.pets[args[3]]) return message.channel.send(`User ${user.username} does not have this pet.`);
-                userpets.pets[args[3]].exp = Number(args[4]);
-                await db.petsdb.set(message.author.id,userpets);
-                return message.channel.send(`Successfully set pet EXP for user ${user.username} on pet ${userpets.pets[args[3]].id} to ${args[4]}.`);
-            };
-            return message.channel.send('Use syntax: `/petadmin [user ID/mention] m [l/e] [pet ID] [value]`');
+        if(!userpets) return message.channel.send('No data found for this user.');
+
+        // Print users data:
+        if(args[1] == 'print' || args[1] == 'read' || args[1] == 'r') return message.channel.send('```json\n'+JSON.stringify(userpets)+'```');
+
+        // Add a new pet
+        if(args[1] == 'addpet' || args[1] == 'ap'){
+            if(!args[2]) return message.channel.send('Make sure to specify a Pet ID. The syntax would be `/petadmin <@user> ap <Pet ID> [level] [exp] [age]`');
+            if(args[2] in userpets.pets) return message.channel.send('This user already has this pet.');
+            userpets.pets[args[2]] = new Pet({
+                id: args[2],
+                level: Number(args[3]) || undefined,
+                exp: Number(args[4]) || undefined,
+                age: Number(args[5]) || undefined
+            });
+            await db.petsdb.set(user.id,userpets);
+            return message.channel.send(`Successfully added \`${args[2]}\` as a pet to user ${user.tag}.`);
         };
-        if(args[1]=='r'){
-            if(!userpets) return message.channel.send('No data found for this user.');
-            return message.channel.send('```json\n'+JSON.stringify(userpets)+'```');
+
+        // Remove an existing pet
+        if(args[1] == 'delpet' || args[1] == 'dp'){
+            if(!args[2]) return message.channel.send('Make sure to specify a Pet ID. The syntax would be `/petadmin <@user> dp <Pet ID>`');
+            if(!args[2] in userpets.pets) return message.channel.send('This user does not have this pet.');
+            delete userpets.pets[args[2]];
+            await db.petsdb.set(user.id,userpets);
+            return message.channel.send(`Successfully removed pet \`${args[2]}\` from user ${user.tag}.`);
         };
-        return message.channel.send('Invalid arguments passed. Syntax: `/petadmin [user ID/mention] [r/m]`');
+
+        // Add an item
+        if(args[1] == 'additem' || args[1] == 'ai'){
+            if(!args[2]) return message.channel.send('Make sure to specify a Item ID. The syntax would be `/petadmin <@user> ai <Item ID>`');
+            userpets = await Item.giveItem({
+                id:args[2],
+                userpets:userpets
+            });
+            await db.petsdb.set(user.id,userpets);
+            return message.channel.send(`Successfully added \`${args[2]}\` as an item to user ${user.tag}.`);
+        };
+
+        // Delete an item
+        if(args[1] == 'delitem' || args[1] == 'di'){
+            if(!args[2]) return message.channel.send('Make sure to specify a Item ID. The syntax would be `/petadmin <@user> di <Item ID>`');
+            if(!Item.hasItem({id:args[2],userpets:userpets})) return message.channel.send('This user does not have this item.');
+            userpets = await Item.removeItem({id:args[2],userpets:userpets});
+            await db.petsdb.set(user.id,userpets);
+        };
+
+        // None of the above:
+        return message.channel.send(locale.text({lang:db.lang,msg:"syntax_error"})+this.syntax);
     }
 };

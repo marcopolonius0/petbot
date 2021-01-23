@@ -18,6 +18,7 @@ class Pet {
         this.age = options.age || Date.now();
         return this;
     };
+
     static searchByName(options){
         let petName = options.args.join(' ');
         let res = null;
@@ -44,6 +45,7 @@ class Pet {
             return res;
         };
     };
+    
     static evolvePet(petData){
         let pet = petinfo.pets[petData.id];
         if(!pet.evolution) return null;
