@@ -3,7 +3,7 @@
 Navigate to the releases tab and download the latest stable release .zip file. NEVER download the bot from the master branch, more information provided below as to the reasoning.
 
 ## First time using:
-You WILL need node.js installed on your PC before moving on. Included with the standard node.js installation is the npm installer. Make sure both are installed. You can download node.js here (go for the latest LTS version): https://nodejs.org/en/download/
+You WILL need node.js installed on your PC before moving on. Included with the standard node.js installation is the npm installer. Make sure both are installed. You can download node.js here (go for the latest LTS version, currently v14): https://nodejs.org/en/download/
 
 To start off with installation, open a command prompt and navigate to this directory using the `cd` command.
 Example: `cd C:/Users/Name/Downloads/petbot`.

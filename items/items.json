@@ -4,7 +4,8 @@
             "id":"item",
             "displayName":"Item",
             "price":0,
-            "obtainable":false,
+            "purchaseable":false,
+            "salable":false,
             "tradeable":false,
             "useable":false
         },
@@ -12,7 +13,8 @@
             "id":"pet_token",
             "displayName":"Pet Voucher",
             "price":0,
-            "obtainable":false,
+            "purchaseable":false,
+            "salable":false,
             "tradeable":true,
             "useable":true
         },
@@ -20,7 +22,8 @@
             "id":"exp_boost_small",
             "displayName":"Small EXP Boost",
             "price":150,
-            "obtainable":true,
+            "purchaseable":true,
+            "salable":true,
             "tradeable":true,
             "useable":true
         },
@@ -28,7 +31,8 @@
             "id":"exp_boost_medium",
             "displayName":"Medium EXP Boost",
             "price":300,
-            "obtainable":true,
+            "purchaseable":true,
+            "salable":true,
             "tradeable":true,
             "useable":true
         },
@@ -36,7 +40,8 @@
             "id":"exp_boost_large",
             "displayName":"Large EXP Boost",
             "price":600,
-            "obtainable":true,
+            "purchaseable":true,
+            "salable":true,
             "tradeable":true,
             "useable":true
         },
@@ -44,7 +49,8 @@
             "id":"exp_boost_huge",
             "displayName":"Huge EXP Boost",
             "price":1500,
-            "obtainable":true,
+            "purchaseable":true,
+            "salable":true,
             "tradeable":true,
             "useable":true
         }

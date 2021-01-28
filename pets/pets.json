@@ -12,7 +12,8 @@
             "id":"mr_smile",
             "displayName":"Mr. Smile",
             "sprite":"mr_smile.png",
-            "obtainable":false,
+            "obtainable":true,
+            "weight":1,
             "value":500,
             "rarity":"Legendary"
         },
@@ -38,6 +39,7 @@
             "sprite":"basic_egg.gif",
             "evolution":["basic_cat","basic_dog"],
             "obtainable":true,
+            "weight":1000,
             "value":0,
             "rarity":"Baby"
         },
@@ -63,6 +65,7 @@
             "sprite":"drippy.png",
             "evolution":["gushy"],
             "obtainable":true,
+            "weight":300,
             "value":30,
             "rarity":"Rare"
         },
@@ -71,8 +74,20 @@
             "displayName":"Gushy",
             "sprite":"gushy.png",
             "obtainable":true,
+            "weight":80,
             "value":80,
             "rarity":"Mythic"
+        },
+        "pink_heart":{
+            "id":"pink_heart",
+            "displayName":"Pink Heart",
+            "sprite":"pink_heart.png",
+            "obtainable":true,
+            "weight":300,
+            "startTime":1612137600000,
+            "endTime":1614556800000,
+            "value":250,
+            "rarity":"Rare"
         }
     },
     "req":{

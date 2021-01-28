@@ -1,9 +1,10 @@
-const Discord = require('discord.js');
+const {MessageEmbed} = require('discord.js');
 const Pet = require('../pets/pet.js');
 const locale = require('../locale/text.js');
 
 module.exports = {
     name:'sellpet',
+    aliases:['sp'],
     syntax:'/sellpet [pet name]',
     admin:false,
     async execute(message,args,db){
@@ -14,11 +15,12 @@ module.exports = {
         if(pet.value == 0) return message.channel.send(locale.text({lang:db.lang,msg:"pet_no_value"}));
         const value = new Number(pet.value)*userpets.tokens.multiplier
         userpets.tokens.count += value;
+        if(userpets.activePet == pet.id) userpets.activePet = null;
         delete userpets.pets[pet.id];
         if(!userpets.stats.petsSold) userpets.stats.petsSold = 0;
         userpets.stats.petsSold += 1;
         await db.petsdb.set(message.author.id,userpets);
-        let msg = new Discord.MessageEmbed()
+        let msg = new MessageEmbed()
             .setColor('#00FF00')
             .setTitle(`Successfully sold ${pet.displayName}:`)
             .attachFiles([`./pets/sprites/${pet.sprite}`])

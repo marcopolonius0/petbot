@@ -1,8 +1,8 @@
 // Setting up the bot for the first time: Please read the README.md file included in this directory.
 
 // Define variables:
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const {Client,MessageEmbed} = require('discord.js');
+const client = new Client();
 const config = require('./private/config.json');
 const text = require('./locale/text.js');
 const Pet = require('./pets/pet');
@@ -57,12 +57,13 @@ client.on('message', async (message) => {
                 if(pet.level > 9 && petinfo.pets[pet.id].evolution){
                     try{
                         let res = Pet.evolvePet(pet);
+                        if(userpets[res.id]) throw null;
                         if(res !== null){
                             let oldPet = pet;
                             delete userpets.pet[activePet];
                             userpets.activePet = res.id;
                             pet = res;
-                            let notification = new Discord.MessageEmbed()
+                            let notification = new MessageEmbed()
                                 .setColor('#0000FF')
                                 .setTitle(`Pet Evolution: ${petinfo.pets[pet.id].displayName}`)
                                 .attachFiles([`./pets/sprites/${petinfo.pets[pet.id].sprite}`])
@@ -71,7 +72,7 @@ client.on('message', async (message) => {
                             message.channel.send(notification);
                         };
                     } catch(error){
-                        console.log(error);
+                        return;
                     };
                 }
                 userpets.pets[userpets.activePet] = pet;
@@ -83,19 +84,19 @@ client.on('message', async (message) => {
     };
     // Command handling
     const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
-    if(commands.has(command)){
-        const cmd = commands.get(command);
-        if(cmd.admin && !config.admins.includes(message.author.id)) return message.channel.send(text.text({locale:usersettings.lang,msg:'no_admin'}));
-        try{
-            cmd.execute(message,args,{maindb:maindb,petsdb:petsdb,lang:usersettings.lang,commands:commands});
-        } catch(error){
-            console.log(error);
-        };
-        if(!userpets.stats.commandsUsed) userpets.stats.commandsUsed = 0;
-        userpets.stats.commandsUsed += 1;
-        await petsdb.set(message.author.id,userpets);
+    const commandName = args.shift().toLowerCase();
+    const command = commands.get(commandName) || commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+    if(!command) return;
+    if(command.admin && !config.admins.includes(message.author.id)) return message.channel.send(text.text({lang:usersettings.lang,msg:'no_admin'}));
+    try{
+        command.execute(message,args,{maindb:maindb,petsdb:petsdb,lang:usersettings.lang,commands:commands});
+    } catch(error){
+        console.error(error);
+        return message.channel.send(text.text({lang:usersettings.lang,msg:'unknown_error'}));
     };
+    if(!userpets.stats.commandsUsed) userpets.stats.commandsUsed = 0;
+    userpets.stats.commandsUsed += 1;
+    await petsdb.set(message.author.id,userpets);
 });
 
 // Logging in. Make sure to set up './private/config.json' to be able to use a token.

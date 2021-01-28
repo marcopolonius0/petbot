@@ -1,6 +1,27 @@
 # Changelogs:
 These are all the changelogs for every version to date.
 
+# b3.0
+## Additions/changes:
+* The `/help` command was changed to be description only instead of field-based, allowing much more commands to be displayed on a single page.
+* Several modules were made faster by not requiring the entire Discord/fs library each time and instead only requiring the MessageEmbed/readDirSync classes/functions.
+* Aliases were added to some commands, meaning there are multiple ways to execute it. This is not mandatory, there does not need to be any.
+* Removed the `obtainable` tag in `items.json` in favour of `purchaseable` and `salable`
+* The `/shop` command is now split into 3 commands:
+* * `/shop` now shows a list of all the purchaseable items;
+* * `/buy` is used to buy any purchaseable item;
+* * `/sell` is used to sell any salable items.
+* The `/inventory` and `/pets` commands now accept user mentions as parameters.
+* Items sold from the shop can now be "limited", i.e. they will appear/disapear at a specific time (optional).
+* Pets from claiming can now also be "limited", also optional.
+* Pets from claiming now have different chances to be dropped (weighted random). Some can be very common while some can be very rare.
+## Fixes:
+* Syntax for `/petadmin` was undescriptive, fixed.
+* Fixed the no-admin message always being in English.
+* Fixed the delete pet admin tool not removing the active pet if they are the same.
+* Fixed `item/info.md` saying that the useItem function was in the Pet module.
+* Fixed `/settings` not awaiting the database call (didn't seem to affect anything, but can't hurt to be safe).
+
 # b2.1
 ## Changes:
 * Statistics are now viewable from the `/stats` command.

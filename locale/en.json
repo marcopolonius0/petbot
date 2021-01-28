@@ -23,15 +23,17 @@
         "syntax":"Syntax: ",
         "no_command_with_name":"There is no command registered with the name ",
         "shop_title":"Shop Menu",
-        "shop_description":"A list of every item you can buy and sell!\nTo buy an item, use `/shop buy [item name]`.\nTo sell an item, use `/shop sell [item name]`.",
+        "shop_description":"A list of every item you can buy and sell!\nTo buy an item, use `/buy [item name]`.",
         "source_title":"Bot source code:",
         "source_description":"If you want to see the source code of this bot, you can see (most) of it over at [GitHub](https://github.com/Kaluub/petbot).",
         "bought_item":"You successfully bought a ",
         "sold_item":"You successfully sold a ",
-        "item_unobtainable":"This item cannot be purchased from the shop.",
+        "item_not_purchaseable":"This item cannot be purchased from the shop.",
+        "item_not_salable":"This item cannot be sold to the shop.",
         "item_not_found":"This item couldn't be found. A list of item names is available using `/shop`.",
         "item_not_owned":"You don't own this item!",
         "item_not_useable":"This item cannot be used!",
+        "item_limited":"This item is no longer for sale!",
         "item_used":"You successfully used your: ",
         "no_tokens":"You don't have enough tokens to afford this item!"
     },
@@ -49,7 +51,9 @@
         "source":"View the source code of the bot on GitHub.",
         "use":"This command is used for using any of your owned items.",
         "stats":"View your personal statistics using this command.",
-        "inventory":"View the inventory of yourself or other."
+        "inventory":"View the inventory of yourself or other.",
+        "buy":"This command is used for buying items from the shop.",
+        "sell":"This command is used for selling items to the shop."
     },
     "pets":{
         "descriptions":{

@@ -4,7 +4,8 @@ const Item = require('../items/item.js');
 
 module.exports = {
     name:'petadmin',
-    syntax:'/petadmin [user ID/mention] [function]',
+    aliases:['padmin','pa'],
+    syntax:'/petadmin [user ID/mention] [r/ap/dp/ai/di]',
     admin:true,
     async execute(message,args,db){
         // Validation checks...
@@ -16,8 +17,11 @@ module.exports = {
         if(!userpets) return message.channel.send('No data found for this user.');
 
         // Print users data:
-        if(args[1] == 'print' || args[1] == 'read' || args[1] == 'r') return message.channel.send('```json\n'+JSON.stringify(userpets)+'```');
-
+        if(args[1] == 'print' || args[1] == 'read' || args[1] == 'r'){
+            if(args[2]) return message.channel.send('```json\n'+JSON.stringify(userpets)+'```');
+            return message.channel.send('```json\n'+JSON.stringify(userpets,null,"\t")+'```');
+        };
+        
         // Add a new pet
         if(args[1] == 'addpet' || args[1] == 'ap'){
             if(!args[2]) return message.channel.send('Make sure to specify a Pet ID. The syntax would be `/petadmin <@user> ap <Pet ID> [level] [exp] [age]`');
@@ -36,6 +40,7 @@ module.exports = {
         if(args[1] == 'delpet' || args[1] == 'dp'){
             if(!args[2]) return message.channel.send('Make sure to specify a Pet ID. The syntax would be `/petadmin <@user> dp <Pet ID>`');
             if(!args[2] in userpets.pets) return message.channel.send('This user does not have this pet.');
+            if(userpets.activePet == args[2]) userpets.activePet = null;
             delete userpets.pets[args[2]];
             await db.petsdb.set(user.id,userpets);
             return message.channel.send(`Successfully removed pet \`${args[2]}\` from user ${user.tag}.`);
@@ -58,6 +63,7 @@ module.exports = {
             if(!Item.hasItem({id:args[2],userpets:userpets})) return message.channel.send('This user does not have this item.');
             userpets = await Item.removeItem({id:args[2],userpets:userpets});
             await db.petsdb.set(user.id,userpets);
+            return message.channel.send(`Successfully removed item \`${args[2]}\` from user ${user.tag}.`)
         };
 
         // None of the above:

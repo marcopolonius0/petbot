@@ -1,23 +1,19 @@
-const Discord = require('discord.js');
+const {MessageEmbed} = require('discord.js');
 const locale = require('../locale/text.js');
 const petinfo = require('../pets/pets.json');
 
 module.exports = {
     name: 'pets',
-    syntax:'/pets',
+    aliases:['p'],
+    syntax:'/pets [@user]',
     admin: false,
     async execute(message,args,db){
         let user = message.mentions.users.first();
-        let userpets;
-        if(user){
-            userpets = await db.petsdb.get(user.id);
-        } else {
-            user = message.author;
-            userpets = await db.petsdb.get(message.author.id);
-        }
+        if(!user) user = message.author;
+        let userpets = await db.petsdb.get(user.id);
         if(Object.keys(userpets.pets).length < 1) return message.channel.send(locale.text({lang:db.lang,msg:"no_pets"}));
         // Base embed
-        let msg = new Discord.MessageEmbed()
+        let msg = new MessageEmbed()
             .setColor('#dd00dd')
             .setTitle(`${user.username}'s Pet Inventory:`);
         // Token count (if any)

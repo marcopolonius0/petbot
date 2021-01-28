@@ -2,10 +2,11 @@ const locale = require('../locale/text.js');
 
 module.exports = {
     name:'settings',
+    aliases:['setting'],
     syntax:'/settings [language] [options]',
     admin:false,
     async execute(message,args,db){
-        let userdata = db.maindb.get(message.author.id);
+        let userdata = await db.maindb.get(message.author.id);
         if(!args[0]) return message.channel.send(locale.text({lang:db.lang,msg:"syntax_error"})+this.syntax);
         if(args[0] == 'lang' || args[0] == 'language'){
             if(!args[1]) return message.channel.send(locale.text({lang:db.lang,msg:"syntax_options"})+"`/settings language [english/french]`");

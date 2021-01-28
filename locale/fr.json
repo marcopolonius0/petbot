@@ -28,10 +28,12 @@
         "source_description":"Si tu veut savoir comment le robot fonction, tu peut voire le source au [GitHub](https://github.com/Kaluub/petbot).",
         "bought_item":"Vous avez acheter un ",
         "sold_item":"Vouz avez vendu un ",
-        "item_unobtainable":"Cette objet n'est pas vendu par le marche.",
+        "item_not_purchaseable":"Cette objet n'est pas vendu par le marche.",
+        "item_not_salable":"Cette objet ne peut pas etre vendu ou le marche.",
         "item_not_found":"Cette objet ne peut pas etre trouver. Utilise `/shop` pour un liste utilisable.",
         "item_not_owned":"Tu n'as pas cette objet!",
         "item_not_useable":"Cette objet ne peut pas etre utiliser.",
+        "item_limited":"Cette objet n'est pas vendu maintenant!",
         "item_used":"Vous avez utiliser votre: ",
         "no_tokens":"Vous n'avez pas les fonds neccessaire pour l'acheter cette objet!"
     },
@@ -49,7 +51,9 @@
         "source":"Voire le source du robot au GitHub.",
         "use":"Cette commande est pour utiliser vos objets.",
         "stats":"Voire tes statisiques personnels ici.",
-        "inventory":"Voire l'inventoire de toi-meme ou un autre personne."
+        "inventory":"Voire l'inventoire de toi-meme ou un autre personne.",
+        "buy":"Les objets sont vendu du marche ici.",
+        "sell":"Utiliser pour vendre tes objets au marche."
     },
     "pets":{
         "descriptions":{

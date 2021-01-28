@@ -1,8 +1,9 @@
-const Discord = require('discord.js');
+const {MessageEmbed} = require('discord.js');
 const locale = require('../locale/text.js');
 
 module.exports = {
     name:'stats',
+    aliases:['statistics','stat'],
     syntax:'/stats [@user]',
     admin:false,
     async execute(message,args,db){
@@ -10,7 +11,7 @@ module.exports = {
         if(!user) user = message.author;
         let data = await db.petsdb.get(user.id);
         if(!data || !data.stats) return;
-        let msg = new Discord.MessageEmbed()
+        let msg = new MessageEmbed()
             .setColor('#AAAAAA')
             .setTitle(`Statistics for ${user.tag}:`)
             .setDescription(`These are some statistics of your usage:\n`)

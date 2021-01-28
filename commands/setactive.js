@@ -3,6 +3,7 @@ const Pet = require('../pets/pet.js');
 
 module.exports = {
     name:'setactive',
+    aliases:['sa'],
     syntax:'/setactive [pet name]',
     admin:false,
     async execute(message,args,db){

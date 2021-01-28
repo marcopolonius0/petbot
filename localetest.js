@@ -30,7 +30,7 @@ const test2 = `${text.text({lang:'en',msg:'missing_permissions'})}ADMINISTRATOR`
 // Longer alternative: const test2 = text.text({lang:'en',msg:'missing_permissions'}) + 'ADMINISTRATOR';
 console.log(test2);
 
-// Fetch locale. Only useful for debugging. Otherwise, should not be used, especially in the main file.
+// Fetch locale. Only useful for debugging. Otherwise, should not be used.
 const fetchedLocale = text.locale();
 console.log('- Output of fetchedLocale:\n| ' + JSON.stringify(fetchedLocale.en.messages));
 

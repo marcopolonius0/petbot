@@ -3,6 +3,7 @@ const Item = require('../items/item.js');
 
 module.exports = {
     name:'use',
+    aliases:['u'],
     syntax:'/use [item name]',
     admin:false,
     async execute(message,args,db){

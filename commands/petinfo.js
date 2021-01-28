@@ -1,10 +1,11 @@
-const Discord = require('discord.js');
+const {MessageEmbed} = require('discord.js');
 const locale = require('../locale/text');
 const Pet = require('../pets/pet.js');
 const petinfo = require('../pets/pets.json');
 
 module.exports = {
     name:'petinfo',
+    aliases:['pi'],
     syntax:'/petinfo [pet name]',
     admin:false,
     async execute(message,args,db){
@@ -14,7 +15,7 @@ module.exports = {
         const userpets = await db.petsdb.get(message.author.id);
         let owned = false;
         if(userpets.pets[searchedPet.id]) owned = true;
-        let msg = new Discord.MessageEmbed()
+        let msg = new MessageEmbed()
             .setColor('#DD00DD')
             .setTitle(`Information on ${searchedPet.displayName}:`)
             .attachFiles([`./pets/sprites/${searchedPet.sprite}`])

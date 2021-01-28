@@ -1,18 +1,32 @@
 // Define important variables:
 const petinfo = require('./pets.json');
 
-// Pet list:
+// Pet claim list:
 let petList = [];
+let totalWeight = 0;
 for(const p in petinfo.pets){
     const pet = petinfo.pets[p];
     if(!pet.obtainable) continue;
+    if(pet.startTime && pet.startTime > Date.now()) continue;
+    if(pet.endTime && pet.endTime < Date.now()) continue;
+    totalWeight += pet.weight;
     petList.push(pet);
+};
+
+function newPet(){
+    let reward = Math.random() * totalWeight;
+    for(const i in petList){
+        const drop = petList[i];
+        if(reward < drop.weight) return drop.id;
+        reward -= drop.weight;
+    };
+    return 'basic_egg';
 };
 
 // Pet constructor:
 class Pet {
     constructor(options){
-        this.id = options.pet || petList[Math.floor(Math.random()*petList.length)].id;
+        this.id = options.pet || newPet();
         this.level = options.level || 0;
         this.exp = options.exp || 0;
         this.age = options.age || Date.now();

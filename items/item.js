@@ -77,7 +77,7 @@ class Item {
         return res;
     };
 
-    // Use an item if it's useable, returns with data if successful or null if not:
+    // Use an item if it's useable, returns with data:
     static async useItem(options){
         if(!options.userpets || !options.itemIndex) return options.userpets;
         let itemdata = options.userpets.items[options.itemIndex];
@@ -92,7 +92,11 @@ class Item {
             if(item.id == 'exp_boost_huge') boost = 500;
             let pet = options.userpets.pets[options.userpets.activePet];
             if(!pet) return options.userpets;
+            if(pet.level > 9) return
             pet.exp += boost;
+            if(pet.exp >= petinfo.req[petinfo.pets[pet.id].rarity] * petinfo.req.base[pet.level])
+                pet.exp = pet.exp - (petinfo.req[petinfo.pets[pet.id].rarity] * petinfo.req.base[pet.level])
+                pet.level += 1;
             options.userpets.pets[pet.id] = pet;
             options.userpets = await Item.removeItem({id:item.id,userpets:options.userpets});
             return options.userpets;

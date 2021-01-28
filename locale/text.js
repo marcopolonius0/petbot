@@ -1,9 +1,9 @@
 // Define variables:
-const fs = require('fs');
+const {readdirSync} = require('fs');
 
 // Locale is stored here for use within the function.
 let locale = {};
-const localeFiles = fs.readdirSync('./locale').filter(file => file.endsWith('.json'));
+const localeFiles = readdirSync('./locale').filter(file => file.endsWith('.json'));
 for(const file of localeFiles){
     const lang = require(`./${file}`);
     if(!lang.version || lang.version != 1) continue;
