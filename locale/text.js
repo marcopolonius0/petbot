@@ -43,6 +43,13 @@ module.exports = {
         if(!msg) msg = locale[data.lang].messages['undefined'] + `'${data.stat}'`;
         return msg;
     },
+    // Returns event name and description in correct locale.
+    events(data){
+        if(!data.lang || !locale[data.lang]) data.lang = 'en';
+        let msg = locale[data.lang].events[data.event];
+        if(!msg) msg = {name:`${locale[data.lang].messages['undefined']}'${data.event}'`,description:`${locale[data.lang].messages['undefined']}'${data.event}'`};
+        return msg;
+    },
     // Returns raw locale data, useful for debugging.
     locale(){
         return locale;

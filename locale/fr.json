@@ -35,7 +35,9 @@
         "item_not_useable":"Cette objet ne peut pas etre utiliser.",
         "item_limited":"Cette objet n'est pas vendu maintenant!",
         "item_used":"Vous avez utiliser votre: ",
-        "no_tokens":"Vous n'avez pas les fonds neccessaire pour l'acheter cette objet!"
+        "no_tokens":"Vous n'avez pas les fonds neccessaire pour l'acheter cette objet!",
+        "no_stats":"Vous n'avez pas des statistiques! Utilise le robot plus et vous aller les recevoirs.",
+        "no_events":"Il n'y a pas un evenement actif a cette moment."
     },
     "commands":{
         "locale":"Un utile administrative pour aider avec le developement de localisation.",
@@ -53,7 +55,8 @@
         "stats":"Voire tes statisiques personnels ici.",
         "inventory":"Voire l'inventoire de toi-meme ou un autre personne.",
         "buy":"Les objets sont vendu du marche ici.",
-        "sell":"Utiliser pour vendre tes objets au marche."
+        "sell":"Utiliser pour vendre tes objets au marche.",
+        "events":"Utiliser pour voir les evenements actifs et du l'information au celles evenements."
     },
     "pets":{
         "descriptions":{
@@ -65,7 +68,8 @@
             "basic_cat":"Un chat normale. C'est trouver par le Basic Egg.",
             "basic_dog":"Un chien normale. C'est trouver par le Basic Egg.",
             "drippy":"Cette goublette d'eau a beaucoup des questions, comme s'il est sec ou non.",
-            "gushy":"Cette goublette n'aime pas les debates stupides. Fait probablement du ketchup?"
+            "gushy":"Cette goublette n'aime pas les debates stupides. Fait probablement du ketchup?",
+            "pink_heart":"Un coeur vivant qui est rose. C'est bonne que ce ne regarde pas comme l'un qui est vrai..."
         }
     },
     "stats":{
@@ -77,5 +81,15 @@
         "itemsSold":"Objets vendu: ",
         "itemsUsed":"Objets utilise: ",
         "commandsUsed":"Nombre de commandes utilises: "
+    },
+    "events":{
+        "valentines-2021":{
+            "name":"Valentines Event",
+            "description":"Le mois de Valentine est ici!\nPour cette mois seulement, tu peut trouver le **Pink Heart** couchou avec `/c`, meme que le **Heart Locket** objet du marche.\nBien Valentines!"
+        },
+        "stpatricks-2021":{
+            "name":"St. Patricks Event",
+            "description":"For the next 2 weeks, enjoy some St. Patricks related goods!\nTODO"
+        }
     }
 }

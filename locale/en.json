@@ -35,7 +35,9 @@
         "item_not_useable":"This item cannot be used!",
         "item_limited":"This item is no longer for sale!",
         "item_used":"You successfully used your: ",
-        "no_tokens":"You don't have enough tokens to afford this item!"
+        "no_tokens":"You don't have enough tokens to afford this item!",
+        "no_stats":"You have no stats! Use some functions of the bot more and stats will come.",
+        "no_events":"There are no ongoing events at the moment."
     },
     "commands":{
         "locale":"An admin tool for testing the locale features.",
@@ -53,7 +55,8 @@
         "stats":"View your personal statistics using this command.",
         "inventory":"View the inventory of yourself or other.",
         "buy":"This command is used for buying items from the shop.",
-        "sell":"This command is used for selling items to the shop."
+        "sell":"This command is used for selling items to the shop.",
+        "events":"Used to see any active events and some details about them."
     },
     "pets":{
         "descriptions":{
@@ -65,7 +68,8 @@
             "basic_cat":"A generic cat. Hatched from the Basic Egg.",
             "basic_dog":"A generic dog. Hatched from the Basic Egg.",
             "drippy":"This water droplet is still questioning whether it's wet or not.",
-            "gushy":"This droplet moved on from things it considered dumb. Probably made out of ketchup?"
+            "gushy":"This droplet moved on from things it considered dumb. Probably made out of ketchup?",
+            "pink_heart":"A living, shining pink heart. Luckily not in the shape of the real deal."
         }
     },
     "stats":{
@@ -77,5 +81,15 @@
         "itemsSold":"Total items sold: ",
         "itemsUsed":"Total items used: ",
         "commandsUsed":"Number of commands ran: "
+    },
+    "events":{
+        "valentines-2021":{
+            "name":"Valentines Event",
+            "description":"The month of Valentines is here!\nFor this month only, you can find the **Pink Heart** pet from claiming, as well as the limited **Heart Locket** item from the shop.\nHappy Valentines!"
+        },
+        "stpatricks-2021":{
+            "name":"St. Patricks Event",
+            "description":"For the next 2 weeks, enjoy some St. Patricks related goods!\nTODO"
+        }
     }
 }

@@ -1,3 +1,4 @@
+const Item = require('../items/item.js');
 const locale = require('../locale/text.js');
 
 module.exports = {

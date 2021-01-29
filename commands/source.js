@@ -11,7 +11,7 @@ module.exports = {
             .setColor('#00FF00')
             .setTimestamp()
             .setTitle(locale.text({lang:db.lang,msg:"source_title"}))
-            .setDescription(locale.text({text:db.lang,msg:"source_description"}));
+            .setDescription(locale.text({lang:db.lang,msg:"source_description"}));
         return message.channel.send(msg);
     }
 };

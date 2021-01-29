@@ -1,6 +1,15 @@
 # Changelogs:
 These are all the changelogs for every version to date.
 
+# b3.1
+## Additions:
+* Added `/events` to see any ongoing active events.
+## Fixes:
+* Fixed `/petadmin` creating a random pet with object name of the arguments passed when adding a new pet.
+* Fixed `/sell` not removing the item upon selling it.
+* Fixed `/source` not translating the description properly.
+* Fixed `/stats` not returning anything if no stats were detected.
+
 # b3.0
 ## Additions/changes:
 * The `/help` command was changed to be description only instead of field-based, allowing much more commands to be displayed on a single page.

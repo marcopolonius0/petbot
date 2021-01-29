@@ -40,7 +40,7 @@
             "evolution":["basic_cat","basic_dog"],
             "obtainable":true,
             "weight":1000,
-            "value":0,
+            "value":5,
             "rarity":"Baby"
         },
         "basic_cat":{

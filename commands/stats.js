@@ -10,7 +10,7 @@ module.exports = {
         let user = message.mentions.users.first();
         if(!user) user = message.author;
         let data = await db.petsdb.get(user.id);
-        if(!data || !data.stats) return;
+        if(!data || !data.stats) return message.channel.send(locale.text({lang:db.lang,msg:"no_stats"}));
         let msg = new MessageEmbed()
             .setColor('#AAAAAA')
             .setTitle(`Statistics for ${user.tag}:`)

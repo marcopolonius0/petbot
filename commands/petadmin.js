@@ -27,7 +27,7 @@ module.exports = {
             if(!args[2]) return message.channel.send('Make sure to specify a Pet ID. The syntax would be `/petadmin <@user> ap <Pet ID> [level] [exp] [age]`');
             if(args[2] in userpets.pets) return message.channel.send('This user already has this pet.');
             userpets.pets[args[2]] = new Pet({
-                id: args[2],
+                pet: args[2],
                 level: Number(args[3]) || undefined,
                 exp: Number(args[4]) || undefined,
                 age: Number(args[5]) || undefined
