@@ -11,7 +11,7 @@ class Item {
     };
     
     // Check if a users data has a specific item ID:
-    static hasItem(options){
+    static async hasItem(options){
         if(!options.id || !options.userpets) return null;
         let res = null;
         for(const i in options.userpets.items){
@@ -63,7 +63,7 @@ class Item {
     };
 
     // Search for an items complete data by searching it using it's display name:
-    static searchItemByName(options){
+    static async searchItemByName(options){
         if(!options.args) return null;
         let res = null;
         let name = options.args.join(' ');
@@ -101,7 +101,7 @@ class Item {
             options.userpets = await Item.removeItem({id:item.id,userpets:options.userpets});
             return options.userpets;
         };
-        if(item.id == 'pet_voucher'){
+        if(item.id == 'pet_token'){
             if(!itemdata.data.pet) return null;
             if(!petinfo.pets[itemdata.data.pets]) return null;
             if(Pet.searchByName({petName:petinfo.pets[itemdata.data.pets].displayName,userpets:options.userpets})) return null;

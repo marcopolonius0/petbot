@@ -5,7 +5,7 @@ const Item = require('../items/item.js');
 module.exports = {
     name:'petadmin',
     aliases:['padmin','pa'],
-    syntax:'/petadmin [user ID/mention] [r/ap/dp/ai/di]',
+    syntax:'/petadmin [user ID/mention] [r/ap/dp/ai/di/v]',
     admin:true,
     async execute(message,args,db){
         // Validation checks...
@@ -24,10 +24,10 @@ module.exports = {
         
         // Add a new pet
         if(args[1] == 'addpet' || args[1] == 'ap'){
-            if(!args[2]) return message.channel.send('Make sure to specify a Pet ID. The syntax would be `/petadmin <@user> ap <Pet ID> [level] [exp] [age]`');
+            if(!args[2]) return message.channel.send('Make sure to specify a Pet ID. The syntax would be `/petadmin <@user> ap <Pet ID> [level] [exp] [age]`.');
             if(args[2] in userpets.pets) return message.channel.send('This user already has this pet.');
             userpets.pets[args[2]] = new Pet({
-                pet: args[2],
+                id: args[2],
                 level: Number(args[3]) || undefined,
                 exp: Number(args[4]) || undefined,
                 age: Number(args[5]) || undefined
@@ -38,7 +38,7 @@ module.exports = {
 
         // Remove an existing pet
         if(args[1] == 'delpet' || args[1] == 'dp'){
-            if(!args[2]) return message.channel.send('Make sure to specify a Pet ID. The syntax would be `/petadmin <@user> dp <Pet ID>`');
+            if(!args[2]) return message.channel.send('Make sure to specify a Pet ID. The syntax would be `/petadmin <@user> dp <Pet ID>`.');
             if(!args[2] in userpets.pets) return message.channel.send('This user does not have this pet.');
             if(userpets.activePet == args[2]) userpets.activePet = null;
             delete userpets.pets[args[2]];
@@ -48,7 +48,7 @@ module.exports = {
 
         // Add an item
         if(args[1] == 'additem' || args[1] == 'ai'){
-            if(!args[2]) return message.channel.send('Make sure to specify a Item ID. The syntax would be `/petadmin <@user> ai <Item ID>`');
+            if(!args[2]) return message.channel.send('Make sure to specify an Item ID. The syntax would be `/petadmin <@user> ai <Item ID>`.');
             userpets = await Item.giveItem({
                 id:args[2],
                 userpets:userpets
@@ -59,11 +59,25 @@ module.exports = {
 
         // Delete an item
         if(args[1] == 'delitem' || args[1] == 'di'){
-            if(!args[2]) return message.channel.send('Make sure to specify a Item ID. The syntax would be `/petadmin <@user> di <Item ID>`');
+            if(!args[2]) return message.channel.send('Make sure to specify an Item ID. The syntax would be `/petadmin <@user> di <Item ID>`.');
             if(!Item.hasItem({id:args[2],userpets:userpets})) return message.channel.send('This user does not have this item.');
             userpets = await Item.removeItem({id:args[2],userpets:userpets});
             await db.petsdb.set(user.id,userpets);
             return message.channel.send(`Successfully removed item \`${args[2]}\` from user ${user.tag}.`)
+        };
+
+        // Add a pet voucher:
+        if(args[1] == 'voucher' || args[1] == 'v'){
+            if(!args[2]) return message.channel.send('Make sure to specify a Pet ID. The syntax would be `/petadmin <@user> v <Pet ID>`.');
+            userpets = await Item.giveItem({
+                userpets:userpets,
+                id:'pet_token',
+                data:{
+                    pet:args[2]
+                }
+            });
+            await db.petsdb.set(user.id,userpets);
+            return message.channel.send(`Added a pet voucher to ${user.tag} with pet ID ${args[2]}.`);
         };
 
         // None of the above:

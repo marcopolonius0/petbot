@@ -5,10 +5,10 @@ const petinfo = require('../pets/pets.json');
 const { tradingUsers } = require('../commands/trade.js');
 
 module.exports = {
-    name:'claim',
-    aliases:['c'],
-    syntax:'/claim',
+    name:'egg',
+    syntax:'/egg',
     admin:false,
+    event:'easter-2021',
     async execute(message,args,db){
         if(tradingUsers[message.author.id]) return message.channel.send(locale.text({lang:db.lang,msg:"in_trade"}));
         let userpets = await db.petsdb.get(message.author.id);
@@ -21,7 +21,7 @@ module.exports = {
         userpets.claimCooldown = Date.now() + 21600000;
         if(userpets.stats.totalClaimed == undefined) userpets.stats.totalClaimed = 0;
         userpets.stats.totalClaimed += 1;
-        let newPet = new Pet({});
+        let newPet = new Pet({event:this.event});
         let petstats = petinfo.pets[newPet.id];
         let msg = new MessageEmbed().setTitle(`Pet claim: ${petstats.displayName}`);
         if(newPet.id in userpets.pets){

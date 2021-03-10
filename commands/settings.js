@@ -8,6 +8,7 @@ module.exports = {
     async execute(message,args,db){
         let userdata = await db.maindb.get(message.author.id);
         if(!args[0]) return message.channel.send(locale.text({lang:db.lang,msg:"syntax_error"})+this.syntax);
+        
         if(args[0] == 'lang' || args[0] == 'language'){
             if(!args[1]) return message.channel.send(locale.text({lang:db.lang,msg:"syntax_options"})+"`/settings language [english/french]`");
             if(args[1] == 'en' || args[1] == 'english'){

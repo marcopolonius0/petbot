@@ -5,6 +5,7 @@
             "displayName":"Clashie",
             "sprite":"clash_eye.png",
             "obtainable":false,
+            "tradeable":true,
             "value":0,
             "rarity":"Rare"
         },
@@ -13,8 +14,9 @@
             "displayName":"Mr. Smile",
             "sprite":"mr_smile.png",
             "obtainable":true,
+            "tradeable":true,
             "weight":1,
-            "value":500,
+            "value":1000,
             "rarity":"Legendary"
         },
         "lime":{
@@ -22,6 +24,7 @@
             "displayName":"Lime",
             "sprite":"lime.png",
             "obtainable":false,
+            "tradeable":false,
             "value":0,
             "rarity":"Unobtainable"
         },
@@ -30,6 +33,7 @@
             "displayName":"Appreciative Star",
             "sprite":"appreciation_star.png",
             "obtainable":false,
+            "tradeable":true,
             "value":0,
             "rarity":"Unobtainable"
         },
@@ -39,8 +43,9 @@
             "sprite":"basic_egg.gif",
             "evolution":["basic_cat","basic_dog"],
             "obtainable":true,
+            "tradeable":true,
             "weight":1000,
-            "value":5,
+            "value":50,
             "rarity":"Baby"
         },
         "basic_cat":{
@@ -48,7 +53,8 @@
             "displayName":"Basic Cat",
             "sprite":"basic_cat.png",
             "obtainable":false,
-            "value":15,
+            "tradeable":true,
+            "value":150,
             "rarity":"Common"
         },
         "basic_dog":{
@@ -56,7 +62,8 @@
             "displayName":"Basic Dog",
             "sprite":"basic_dog.png",
             "obtainable":false,
-            "value":15,
+            "tradeable":true,
+            "value":150,
             "rarity":"Common"
         },
         "drippy":{
@@ -65,6 +72,7 @@
             "sprite":"drippy.png",
             "evolution":["gushy"],
             "obtainable":true,
+            "tradeable":true,
             "weight":300,
             "value":30,
             "rarity":"Rare"
@@ -73,7 +81,8 @@
             "id":"gushy",
             "displayName":"Gushy",
             "sprite":"gushy.png",
-            "obtainable":true,
+            "obtainable":false,
+            "tradeable":true,
             "weight":80,
             "value":80,
             "rarity":"Mythic"
@@ -83,11 +92,78 @@
             "displayName":"Pink Heart",
             "sprite":"pink_heart.png",
             "obtainable":true,
+            "tradeable":true,
             "weight":300,
             "startTime":1612137600000,
             "endTime":1614556800000,
             "value":250,
             "rarity":"Rare"
+        },
+        "clover":{
+            "id":"clover",
+            "displayName":"Clover",
+            "sprite":"clover.png",
+            "obtainable":true,
+            "tradeable":true,
+            "weight":300,
+            "value":250,
+            "rarity":"Rare",
+            "event":"st-patricks-2021"
+        },
+        "traditional_egg":{
+            "id":"traditional_egg",
+            "displayName":"Traditional Egg",
+            "sprite":"traditional_egg.png",
+            "obtainable":false,
+            "tradeable":true,
+            "weight":500,
+            "value":100,
+            "rarity":"Common",
+            "event":"easter-2021"
+        },
+        "cute_egg":{
+            "id":"cute_egg",
+            "displayName":"Cute Egg",
+            "sprite":"cute_egg.png",
+            "obtainable":false,
+            "tradeable":true,
+            "weight":250,
+            "value":250,
+            "rarity":"Rare",
+            "event":"easter-2021"
+        },
+        "cool_egg":{
+            "id":"cool_egg",
+            "displayName":"Cool Egg",
+            "sprite":"cool_egg.png",
+            "obtainable":false,
+            "tradeable":true,
+            "weight":250,
+            "value":250,
+            "rarity":"Rare",
+            "event":"easter-2021"
+        },
+        "demonic_egg":{
+            "id":"demonic_egg",
+            "displayName":"Demonic Egg",
+            "sprite":"demonic_egg.png",
+            "obtainable":false,
+            "tradeable":true,
+            "weight":60,
+            "value":600,
+            "rarity":"Mythic",
+            "event":"easter-2021"
+        },
+        "rainbow_egg":{
+            "id":"rainbow_egg",
+            "displayName":"Rainbow Egg",
+            "sprite":"rainbow_egg.gif",
+            "obtainable":false,
+            "tradeable":true,
+            "weight":10,
+            "value":1000,
+            "rarity":"Legendary",
+            "event":"easter-2021"
         }
     },
     "req":{

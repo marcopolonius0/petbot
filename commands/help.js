@@ -1,6 +1,6 @@
-const {MessageEmbed} = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const locale = require('../locale/text.js');
-const {admins} = require('../private/config.json');
+const { admins } = require('../private/config.json');
 
 module.exports = {
     name:'help',

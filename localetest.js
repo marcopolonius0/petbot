@@ -4,34 +4,36 @@
 // Command messages
 // Command descriptions (used in /help)
 // Pet descriptions (used in /petinfo)
+// Stat names (used in /stats)
+// Event names and descriptions (used in /events)
 
 // Requires fs. To use the locale, also requires text.js in './locale/text.js'.
-const fs = require('fs');
-const text = require('./locale/text.js');
+const { readdirSync } = require('fs');
+const locale = require('./locale/text.js');
 
 // Fetch locales.
-let locale = {};
-const localeFiles = fs.readdirSync('./locale').filter(file => file.endsWith('.json'));
+let localeData = {};
+const localeFiles = readdirSync('./locale').filter(file => file.endsWith('.json'));
 for(const file of localeFiles){
     const lang = require(`./locale/${file}`);
     if(!lang.version || lang.version != 1) continue;
-    locale[lang.name] = lang;
+    localeData[lang.name] = lang;
 };
 
 // Send locale data to be able to use it. Requires text.js.
-text.update(locale);
+text.update(localeData);
 
 // Example usage. Requires text.js.
-const test = text.text({lang:'en',msg:'test_message'});
+const test = locale.text({lang:'en',msg:'test_message'});
 console.log(test);
 
 // Combine strings to make some messages make sense.
-const test2 = `${text.text({lang:'en',msg:'missing_permissions'})}ADMINISTRATOR`;
+const test2 = `${locale.text({lang:'en',msg:'missing_permissions'})}ADMINISTRATOR`;
 // Longer alternative: const test2 = text.text({lang:'en',msg:'missing_permissions'}) + 'ADMINISTRATOR';
 console.log(test2);
 
 // Fetch locale. Only useful for debugging. Otherwise, should not be used.
-const fetchedLocale = text.locale();
+const fetchedLocale = locale.locale();
 console.log('- Output of fetchedLocale:\n| ' + JSON.stringify(fetchedLocale.en.messages));
 
 // An example using discord.js code (will NOT work unless you set up discord.js in this file).

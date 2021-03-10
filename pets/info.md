@@ -13,6 +13,7 @@ Here's an example of a new pet
             "displayName":"New Pet",
             "sprite":"new_pet.png",
             "obtainable":true,
+            "tradeable":true,
             "weight":80,
             "value":4,
             "rarity":"Mythic"
@@ -37,10 +38,12 @@ Here's an example of a new pet
 * `id`: The ID used to store the pet. MUST be the same as the object name.
 * `displayName`: The name of the item shown to users.
 * `sprite`: The sprite file in /pets/sprites. You can add folders as well, please remember to add in the folder directory properly though.
-* `obtainable`: Whether or not the can is obtained through claiming.
+* `obtainable`: Whether or not the pet is obtained through claiming.
+* `tradeable`: Whether or not the pet is tradeable using `/trade`.
 * `weight`: The chance of the pet being obtained from claiming. Only required if `obtainable` = true.
 * `value`: The sell value of the pet. Make sure it is a valid number.
 * `rarity`: The rarity used to define how much EXP is needed to progress to the next level. Adding new rarities can easily be done but is not part of this tutorial for simplicity.
+* `event` (Optional): An event ID to tie an item to, so that the pet is only available during that time.
 * `startTime` (Optional): The starting time (in valid JS Date, Unix Epoch + milliseconds, as a number) of when this pet becomes obtainable.
 * `endTime` (Optional): The ending time (in valid JS Date, Unix Epoch + milliseconds, as a number) of when this pet becomes unobtainable.
 

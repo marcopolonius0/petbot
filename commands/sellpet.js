@@ -1,6 +1,7 @@
-const {MessageEmbed} = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const Pet = require('../pets/pet.js');
 const locale = require('../locale/text.js');
+const { tradingUsers } = require('../commands/trade.js');
 
 module.exports = {
     name:'sellpet',
@@ -8,6 +9,7 @@ module.exports = {
     syntax:'/sellpet [pet name]',
     admin:false,
     async execute(message,args,db){
+        if(tradingUsers[message.author.id]) return message.channel.send(locale.text({lang:db.lang,msg:"in_trade"}));
         if(!args[0]) return message.channel.send(locale.text({lang:db.lang,msg:"syntax_error"})+"`/sellpet [pet name]`");
         let userpets = await db.petsdb.get(message.author.id);
         const pet = await Pet.searchByName({args:args,userdata:userpets});

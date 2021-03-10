@@ -1,7 +1,7 @@
 // Setting up the bot for the first time: Please read the README.md file included in this directory.
 
 // Define variables:
-const {Client,MessageEmbed} = require('discord.js');
+const { Client, MessageEmbed } = require('discord.js');
 const client = new Client();
 const config = require('./private/config.json');
 const text = require('./locale/text.js');
@@ -9,6 +9,7 @@ const Pet = require('./pets/pet');
 const Data = require('./data.js');
 const petinfo = require('./pets/pets.json');
 const commands = require('./commands.js');
+const eventinfo = require('./events/events.json');
 const prefix = `/`;
 
 // Start database:
@@ -74,7 +75,7 @@ client.on('message', async (message) => {
                     } catch(error){
                         return;
                     };
-                }
+                };
                 userpets.pets[userpets.activePet] = pet;
                 userpets.petMessageCooldown = Date.now() + 10000;
                 await petsdb.set(message.author.id,userpets);
@@ -82,12 +83,18 @@ client.on('message', async (message) => {
         };
         return;
     };
+
     // Command handling
     const args = message.content.slice(prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
     const command = commands.get(commandName) || commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
     if(!command) return;
     if(command.admin && !config.admins.includes(message.author.id)) return message.channel.send(text.text({lang:usersettings.lang,msg:'no_admin'}));
+    if(command.event){
+        let event = eventinfo.events[command.event];
+        if(event.startTime > Date.now()) return message.channel.send(text.text({lang:usersettings.lang,msg:'command_not_available'}));
+        if(event.endTime < Date.now()) return message.channel.send(text.text({lang:usersettings.lang,msg:'command_not_available'}));
+    };
     try{
         command.execute(message,args,{maindb:maindb,petsdb:petsdb,lang:usersettings.lang,commands:commands});
     } catch(error){

@@ -1,6 +1,21 @@
 # Changelogs:
 These are all the changelogs for every version to date.
 
+# v1
+## Additions:
+* Added `/trade`. This command is used to start a trade with another user.
+* * Just as a side note, this feature could have been made much better, this is the first time I've ever made anything like it, so it's new to me.
+* Allowed pets and/or items to begin/stop appearing when the event starts/stops.
+* Changed the `/buy` and `/sell` commands to be more organised.
+* Added an option to `/petadmin` to allow the creation of pet vouchers.
+* Allowed commands to be limited to events to create event-exclusive commands.
+* Added St. Patricks and Easter events.
+## Fixes/changes:
+* Changed pets to reroll pet chances every time a new pet is called to make sure they are added/removed from the pool at the appropriate times.
+* Changed the pet constructor to use 'id' instead of 'pet' when specifiying the pet in the options object.
+* Fixed a few issues with the pet voucher item, should now work properly if one is made.
+* Fixed `items/info.md` not having complete item json info.
+
 # b3.1
 ## Additions:
 * Added `/events` to see any ongoing active events.

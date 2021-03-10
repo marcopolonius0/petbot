@@ -1,4 +1,4 @@
-const {MessageEmbed} = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const locale = require('../locale/text');
 const Pet = require('../pets/pet.js');
 const petinfo = require('../pets/pets.json');
@@ -20,7 +20,7 @@ module.exports = {
             .setTitle(`Information on ${searchedPet.displayName}:`)
             .attachFiles([`./pets/sprites/${searchedPet.sprite}`])
             .setImage(`attachment://${searchedPet.sprite}`)
-            .setDescription(`Description: ${locale.petDescription({lang:db.lang,pet:searchedPet.id})}\nRarity: ${searchedPet.rarity}\nToken Value: ${searchedPet.value} tokens\nObtainable from claiming: ${(searchedPet.obtainable)?"Yes":"No"}\nOwned: ${(owned)?"Yes":"No"}`)
+            .setDescription(`Description: ${locale.petDescription({lang:db.lang,pet:searchedPet.id})}\nRarity: ${searchedPet.rarity}\nToken Value: ${searchedPet.value} tokens\nTradeable: ${(searchedPet.tradeable)?"Yes":"No"}\nOwned: ${(owned)?"Yes":"No"}`)
             .setTimestamp();
         if(searchedPet.evolution){
             let evolutions = [];

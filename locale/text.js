@@ -1,5 +1,5 @@
 // Define variables:
-const {readdirSync} = require('fs');
+const { readdirSync } = require('fs');
 
 // Locale is stored here for use within the function.
 let locale = {};

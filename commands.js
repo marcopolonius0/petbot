@@ -1,5 +1,5 @@
-const {readdirSync} = require('fs');
-const {Collection} = require('discord.js');
+const { readdirSync } = require('fs');
+const { Collection } = require('discord.js');
 
 const commands = new Collection();
 const commandFiles = readdirSync('./commands').filter(file => file.endsWith('.js'));

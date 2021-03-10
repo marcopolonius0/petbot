@@ -53,6 +53,16 @@
             "salable":true,
             "tradeable":true,
             "useable":true
+        },
+        "lucky_clover_2021":{
+            "id":"lucky_clover_2021",
+            "displayName":"Lucky Clover (2021)",
+            "price":1000,
+            "purchaseable":true,
+            "salable":true,
+            "tradeable":true,
+            "useable":false,
+            "event":"st-patricks-2021"
         }
     }
 }

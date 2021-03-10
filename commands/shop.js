@@ -1,6 +1,7 @@
 const {MessageEmbed} = require("discord.js");
 const items = require('../items/items.json');
 const locale = require('../locale/text.js');
+const eventinfo = require('../events/events.json');
 
 module.exports = {
     name:'shop',
@@ -18,10 +19,13 @@ module.exports = {
             if(!item.purchaseable) continue;
             if(item.startTime && item.startTime > Date.now()) continue;
             if(item.endTime && item.endTime < Date.now()) continue;
-            if(item.endTime)
-                msg.setDescription(msg.description + `\nLIMITED: **${item.displayName}** (${Math.floor(item.price)} tokens)`);
-            else
-                msg.setDescription(msg.description + `\n**${item.displayName}** (${Math.floor(item.price)} tokens)`);
+            if(item.event){
+                let event = eventinfo.events[item.event];
+                if(event.startTime > Date.now()) continue;
+                if(event.endTime < Date.now()) continue;
+            };
+            if(item.endTime || item.event) msg.setDescription(msg.description + `\nLIMITED: **${item.displayName}** (${Math.floor(item.price)} tokens)`);
+            else msg.setDescription(msg.description + `\n**${item.displayName}** (${Math.floor(item.price)} tokens)`);
         };
         return message.channel.send({embed:msg,split:true});
     }

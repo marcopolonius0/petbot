@@ -28,3 +28,6 @@ Here's an example of a new item:
 * `salable`: Whether this item can be sold to the shop. Can still be traded between players by trading it (if `tradeable` = true).
 * `tradeable`: Whether this item can be exchanged between players or not. Can still be given using admin permissions, or from the shop (if `purchasable` = true).
 * `useable`: Whether this item can be "used" and consumed (deleting the item). This requires using the Item module and the function useItem().
+* `startTime`: When the item will start appearing in the shop, as an unix epoch date.
+* `endTime`: When the item will stop appearing in the shop, as an unix epoch date.
+* `event`: Tie this item to an event to have it be limited to a specific time.

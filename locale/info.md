@@ -35,3 +35,5 @@ You don't need to add the message in every language, however if it is called and
 * `messages`: An object holding all the messages used in any command.
 * `commands`: An object holding all the command descriptions used in the `/help` command.
 * `pets`: An object holding all the pet descriptions used in various pet related tasks.
+* `stats`: An object holding all the statistic names used in `/stats`.
+* `events`: An object holding all the event title and description values used in `/events`.

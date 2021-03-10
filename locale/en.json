@@ -37,7 +37,11 @@
         "item_used":"You successfully used your: ",
         "no_tokens":"You don't have enough tokens to afford this item!",
         "no_stats":"You have no stats! Use some functions of the bot more and stats will come.",
-        "no_events":"There are no ongoing events at the moment."
+        "no_events":"There are no ongoing events at the moment.",
+        "no_user_trade":"Please mention an user to trade with them. Example: `/trade @Friend`.",
+        "no_data":"You or your trading partner have no data stored in the database!",
+        "in_trade":"You cannot run this command while in a trade.",
+        "command_not_available":"This command is not available right now."
     },
     "commands":{
         "locale":"An admin tool for testing the locale features.",
@@ -56,7 +60,9 @@
         "inventory":"View the inventory of yourself or other.",
         "buy":"This command is used for buying items from the shop.",
         "sell":"This command is used for selling items to the shop.",
-        "events":"Used to see any active events and some details about them."
+        "events":"Used to see any active events and some details about them.",
+        "trade":"Start a trade with a friend, or a stranger. Using this command temporarily blocks you from running some other commands.",
+        "egg":"Exclusive to the Easter event, this command can be used instead of `/claim` to get a random Easter exclusive pet."
     },
     "pets":{
         "descriptions":{
@@ -69,7 +75,8 @@
             "basic_dog":"A generic dog. Hatched from the Basic Egg.",
             "drippy":"This water droplet is still questioning whether it's wet or not.",
             "gushy":"This droplet moved on from things it considered dumb. Probably made out of ketchup?",
-            "pink_heart":"A living, shining pink heart. Luckily not in the shape of the real deal."
+            "pink_heart":"A living, shining pink heart. Luckily not in the shape of the real deal.",
+            "clover":"This 4-leafed clover is somehow meant to symbolize luck. Perhaps it's rare?"
         }
     },
     "stats":{
@@ -85,11 +92,15 @@
     "events":{
         "valentines-2021":{
             "name":"Valentines Event",
-            "description":"The month of Valentines is here!\nFor this month only, you can find the **Pink Heart** pet from claiming, as well as the limited **Heart Locket** item from the shop.\nHappy Valentines!"
+            "description":"The month of Valentines is here!\nFor this month only, you can find the **Pink Heart** pet from claiming.\nHappy Valentines!"
         },
-        "stpatricks-2021":{
+        "st-patricks-2021":{
             "name":"St. Patricks Event",
-            "description":"For the next 2 weeks, enjoy some St. Patricks related goods!\nTODO"
+            "description":"For the next 2 weeks, enjoy some St. Patricks related goods!\nThe **Clover** pet can be obtained from claiming, and the **Lucky Clover (2021)** is also available in the shop."
+        },
+        "easter-2021":{
+            "name":"Easter Event",
+            "description":"Easter has arrived! For the next week, there'll be some Easter exclusive content!\nSpecial egg-based pets are coming, and the special **Rainbow Egg** pet will be limited to 2021.\nA new way to get pets has been found! Type `/egg` instead of `/c` to randomly get an Egg pet."
         }
     }
 }
